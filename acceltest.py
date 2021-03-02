@@ -1,11 +1,17 @@
 import smbus
 import math
 import time
- 
+import os
+import sys
+import pexpect
+
 # Register
 power_mgmt_1 = 0x6b
 power_mgmt_2 = 0x6c
  
+with open("/home/pi/Document/password.txt") as f:
+    pas = f.readline()
+
 def read_byte(reg):
     return bus.read_byte_data(address, reg)
  
@@ -39,7 +45,8 @@ address = 0x68       # via i2cdetect
 
 cycle = 0
 while cycle < 10:
-    label = raw_input("activity label:")
+   # label = raw_input("activity label:")
+    label = 1
     f = open("data{0}.csv".format(cycle), "w")
     print("data{0}.txt printed".format(cycle))
     for i in range(1000):
@@ -71,3 +78,13 @@ while cycle < 10:
         
     f.close()
     cycle += 1
+
+os.system("git add -A")
+os.system("git commit -m data")
+child = pexpect.spawn("git push")
+child.logfile_read = sys.stdout
+child.expect("Username for 'http://github.com':")
+child.sendline("Ksaver1")
+child.expect("Password for 'https://github.com/Ksaver1/First-Repository.git':")
+child.sendline.(pas)
+child.interact()
