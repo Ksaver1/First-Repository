@@ -85,6 +85,6 @@ child = pexpect.spawn("git push")
 child.logfile_read = sys.stdout
 child.expect("Username for 'https://github.com':")
 child.sendline("Ksaver1")
-child.expect("Password for 'https://github.com/Ksaver1/First-Repository.git':")
+child.expect("Password for 'https://Ksaver1@github.com':")
 child.sendline(pas)
 child.interact()
