@@ -9,7 +9,7 @@ import pexpect
 power_mgmt_1 = 0x6b
 power_mgmt_2 = 0x6c
  
-with open("/home/pi/Document/password.txt") as f:
+with open("/home/pi/Documents/password.txt") as f:
     pas = f.readline()
 
 def read_byte(reg):
