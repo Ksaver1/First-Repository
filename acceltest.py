@@ -18,7 +18,7 @@ def read_byte(reg):
 def read_word(reg):
     h = bus.read_byte_data(address, reg)
     l = bus.read_byte_data(address, reg+1)
-    value = (h << 8) + 
+    value = (h << 8) + l
 def read_word_2c(reg):
     val = read_word(reg)
     if (val >= 0x8000):
