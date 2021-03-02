@@ -83,7 +83,7 @@ os.system("git add -A")
 os.system("git commit -m data")
 child = pexpect.spawn("git push")
 child.logfile_read = sys.stdout
-child.expect("Username for 'http://github.com':")
+child.expect("Username for 'https://github.com':")
 child.sendline("Ksaver1")
 child.expect("Password for 'https://github.com/Ksaver1/First-Repository.git':")
 child.sendline(pas)
