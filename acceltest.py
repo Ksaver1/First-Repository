@@ -18,9 +18,7 @@ def read_byte(reg):
 def read_word(reg):
     h = bus.read_byte_data(address, reg)
     l = bus.read_byte_data(address, reg+1)
-    value = (h << 8) + l
-    return value
- 
+    value = (h << 8) + 
 def read_word_2c(reg):
     val = read_word(reg)
     if (val >= 0x8000):
@@ -86,5 +84,5 @@ child.logfile_read = sys.stdout
 child.expect("Username for 'http://github.com':")
 child.sendline("Ksaver1")
 child.expect("Password for 'https://github.com/Ksaver1/First-Repository.git':")
-child.sendline.(pas)
+child.sendline(pas)
 child.interact()
